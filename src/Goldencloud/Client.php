@@ -64,11 +64,11 @@ class Client{
      * @throws \Exception
      */
     private function _curl(){
-        $response = curl_exec($this->handle);
-        curl_getinfo($this->handle);
-        curl_close($this->handle);
 
         try {
+            $response = curl_exec($this->handle);
+            curl_close($this->handle);
+
             $this->response = json_decode($response, true);
         }catch (\Exception $e){
             throw new \Exception("无法获取有效数据", 500);
